@@ -1,0 +1,31 @@
+{
+  "name": "support-ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint"
+},
+  
+  "dependencies": {
+    "@google/genai": "^1.46.0",
+    "@scalekit-sdk/node": "^2.5.0",
+    "axios": "^1.13.6",
+    "framer-motion": "^12.38.0",
+    "mongoose": "^9.3.1",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "@types/node": "25.5.0",
+    "@types/react": "19.2.14",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
+    "typescript": "5.9.3"
+  }
+}
