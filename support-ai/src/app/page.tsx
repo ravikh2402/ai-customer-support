@@ -1,6 +1,8 @@
 import HomeClient from "@/components/homeclient";
 import { getSession } from "@/lib/getsession";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   try {
     const session = await getSession()
