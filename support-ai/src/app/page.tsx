@@ -2,9 +2,15 @@ import HomeClient from "@/components/homeclient";
 import { getSession } from "@/lib/getsession";
 
 export default async function Page() {
-  const session=await getSession() // Call getSession to log the token from cookies
-  
-  return (
-    <HomeClient email={session?.user?.email!} />
-  )
+  try {
+    const session = await getSession()
+    return (
+      <HomeClient email={session?.user?.email} />
+    )
+  } catch (error) {
+    console.error("Page error:", error)
+    return (
+      <HomeClient />
+    )
+  }
 }
