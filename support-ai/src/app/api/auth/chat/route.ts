@@ -54,10 +54,10 @@ Knowledge Base: ${businessInfo.knowledge}
 Customer Question: ${message}`;
 
     const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
+    const prompt = `${systemPrompt}\n\n${userPrompt}`;
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
-      contents: userPrompt,
-      systemInstruction: systemPrompt,
+      contents: prompt,
     });
 
     const text =

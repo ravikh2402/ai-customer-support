@@ -1,7 +1,7 @@
 
 
 (function (){
-  const api_Url="http://localhost:3000/api/auth/chat"
+  const api_Url=`${process.env.NEXT_PUBLIC_APP_URL}/api/auth/chat`
   const scriptTAg=document.currentScript;
   const ownerId=scriptTAg.getAttribute("data-owner-id")
 if(!ownerId){
