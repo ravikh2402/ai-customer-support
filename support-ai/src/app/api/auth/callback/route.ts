@@ -7,9 +7,11 @@ export async function GET(req:NextRequest) {
   if(!code){
     return NextResponse.json({error:"Authorization code not found"}, {status:400})  
   }
-  const session= await scalekit.authenticateWithCode(code, `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/callback`)
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || `${req.nextUrl.protocol}//${req.nextUrl.host}`;
+  const redirectUri = `${appUrl}/api/auth/callback`;
+  const session= await scalekit.authenticateWithCode(code, redirectUri)
   console.log("Session:", session)
-  const response=NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}`)
+  const response=NextResponse.redirect(appUrl)
   response.cookies.set("access_token",session.accessToken,{
     httpOnly:true,
     secure:true,

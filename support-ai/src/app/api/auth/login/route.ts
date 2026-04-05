@@ -2,9 +2,10 @@ import { scalekit } from "@/lib/scalekit";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req:NextRequest) {
-  const redirecturi=`${process.env.NEXT_PUBLIC_APP_URL}/api/auth/callback`
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || `${req.nextUrl.protocol}//${req.nextUrl.host}`;
+  const redirecturi=`${appUrl}/api/auth/callback`
   const url=scalekit.getAuthorizationUrl(redirecturi)
-  console.log(url)
+  console.log("Authorization URL:", url)
   return NextResponse.redirect(url)
 
 }
