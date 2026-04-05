@@ -12,7 +12,7 @@ export async function GET(req:NextRequest) {
   const response=NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}`)
   response.cookies.set("access_token",session.accessToken,{
     httpOnly:true,
-    secure:false,
+    secure:true,
     maxAge:60*60*24*7, // 7 days
     path:"/"
   })
