@@ -20,7 +20,8 @@ function embedclient({ ownerId }: { ownerId: string }) {
       console.error("Copy failed", err);
     }
   }
-  const embed=`<script src="${process.env.NEXT_PUBLIC_APP_URL}/chatBot.js"
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const embed=`<script src="${appUrl}/chatBot.js"
               data-owner-id="${ownerId}"
               ></script>`
 
